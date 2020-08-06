@@ -7,4 +7,32 @@ $(document).ready(function () {
 
     });
 
+
+    $(document).on("click", "#submitBtn", function () {
+
+        var newBrg = {
+            burger_name: $("#input").val(),
+            devoured: 0
+        }
+
+        $("#theList").append("<li>" + $("#input").val() + "</li>");
+        
+
+        $.post("/api/newBurg", newBrg);
+    });
+
+
+    $(document).on("click", ".isDevoured", function () {
+
+        var newBrg = {
+            devoured: 1
+        };
+
+        $.ajax({
+            url: "/api/isDevoured/" + $(this).attr("id"),
+            type: 'PUT',
+            data: newBrg
+        });  
+    });
+
 });

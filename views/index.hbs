@@ -1,18 +1,23 @@
 <div class="container">
     <div class="col-md-6">
-        <ol>
+        <input type="text" id="input">
+        <button type="button" id="submitBtn">submit
+        </button>
+        <ol id="theList">
             {{#each burgers}}
-            <li>
+            <li class="burgerText">
                 {{this.burger_name}}
             </li>
+            <button type="button" class="isDevoured" id="{{@index}}">devour</button>
             {{/each}}
         </ol>
     </div>
     <div class="col-md-6">
-        <ol>
-            {{#each burgers}}
+        <h1>Devoured Burgers</h1>
+        <ol id="theDevoured">
+            {{#each burgersDevoured}}
             <li>
-                {{this.burger_name}}
+                {{this}}
             </li>
             {{/each}}
         </ol>
