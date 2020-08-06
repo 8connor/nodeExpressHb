@@ -16,9 +16,11 @@ $(document).ready(function () {
         }
 
         $("#theList").append("<li>" + $("#input").val() + "</li>");
-        
+
 
         $.post("/api/newBurg", newBrg);
+
+        location.reload();
     });
 
 
@@ -32,7 +34,9 @@ $(document).ready(function () {
             url: "/api/isDevoured/" + $(this).attr("id"),
             type: 'PUT',
             data: newBrg
-        });  
+        });
+
+        location.reload();
     });
 
 });
